@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Vyomarr</title>
+
+    <!-- Font Imports based on the provided theme -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS and custom styles from the provided theme -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /*
+        This style block contains the custom CSS variables and utility classes
+        defined in the user's provided theme code, along with custom effects
+        for a cohesive and enhanced user experience.
+        */
+
+        :root {
+            /* Primary Colors */
+            --color-primary: #000B49; /* deep cosmic blue */
+            --color-secondary: #1B1F30; /* dark slate */
+            --color-accent: #4F46E5; /* vibrant indigo */
+            
+            /* Background Colors */
+            --color-background: #0A0A0B; /* near-black */
+            --color-surface: #1A1B23; /* elevated dark surface */
+            
+            /* Text Colors */
+            --color-text-primary: #F8FAFC; /* high-contrast white */
+            --color-text-secondary: #94A3B8; /* muted blue-gray */
+            
+            /* Status Colors */
+            --color-success: #10B981; /* cosmic green */
+            --color-warning: #F59E0B; /* stellar amber */
+            --color-error: #EF4444; /* mars red */
+            
+            /* Shadow Colors */
+            --shadow-cosmic: 0 4px 20px rgba(79, 70, 229, 0.15);
+            --shadow-subtle: 0 2px 8px rgba(79, 70, 229, 0.1);
+            --shadow-moderate: 0 8px 32px rgba(79, 70, 229, 0.2);
+            --shadow-prominent: 0 16px 48px rgba(79, 70, 229, 0.25);
+            
+            /* Border Colors */
+            --border-subtle: rgba(148, 163, 184, 0.2);
+            --border-accent: var(--color-accent);
+        }
+
+        /* Applying the theme's base styles using Tailwind's @layer */
+        @layer base {
+            * {
+                border-color: var(--border-subtle);
+            }
+            
+            body {
+                background-color: var(--color-background);
+                color: var(--color-text-primary);
+                font-family: 'Inter', sans-serif;
+                font-feature-settings: "rlig" 1, "calt" 1;
+            }
+            
+            h1, h2, h3, h4, h5, h6 {
+                font-family: 'Clash Display', sans-serif;
+            }
+        }
+
+        /* Applying the theme's component styles using Tailwind's @layer */
+        @layer components {
+            .cosmic-glow {
+                box-shadow: var(--shadow-cosmic);
+            }
+            
+            .cosmic-glow-subtle {
+                box-shadow: var(--shadow-subtle);
+            }
+            
+            .cosmic-glow-moderate {
+                box-shadow: var(--shadow-moderate);
+            }
+            
+            .cosmic-glow-prominent {
+                box-shadow: var(--shadow-prominent);
+            }
+            
+            .transition-cosmic {
+                transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            
+            .transition-cosmic-slow {
+                transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            
+            .border-cosmic {
+                border: 1px solid var(--border-subtle);
+            }
+            
+            .border-cosmic-accent {
+                border: 1px solid var(--border-accent);
+            }
+        }
+
+        /* Applying the theme's utility styles using Tailwind's @layer */
+        @layer utilities {
+            .text-balance {
+                text-wrap: balance;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            ::before,
+            ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /*
+        Custom styles from the original HTML, adapted to use the new theme's variables.
+        The scroll-indicator styles have been removed.
+        */
+        body {
+            /* Using radial gradient for a modern cosmic background effect */
+            background-image: radial-gradient(at 0% 0%, var(--color-surface), var(--color-background));
+            background-color: var(--color-background);
+            background-position: 0% 0%;
+        }
+
+        .shimmer-effect::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem 2rem;
+            background-color: var(--color-secondary);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .section-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 9999px;
+            /* Using theme colors for the gradient and shadow */
+            background: linear-gradient(to right, var(--color-accent), var(--color-success));
+            color: var(--color-text-primary);
+            font-weight: 700;
+            font-size: 1.25rem;
+            box-shadow: var(--shadow-cosmic);
+        }
+
+        @media (max-width: 639px) {
+            .section-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .section-number {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-text-primary font-inter min-h-screen">
+    <!-- Navbar and footer placeholders are kept as in the original code -->
+    <div id="navbar"></div>
+
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-8">
+        <!-- Main header section, styled with the new theme classes -->
+        <header class="text-center mb-10 md:mb-16 p-8 bg-surface rounded-2xl cosmic-glow-moderate">
+            <br><br><br><br>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-clash font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent via-success to-warning mb-4">
+                Terms of Service
+            </h1>
+        </header>
+
+        <main>
+            <!-- Terms of Service sections -->
+            <div class="space-y-6 md:space-y-12">
+                <br><br><br>
+                <!-- Section 1: Age Requirements & Eligibility -->
+                <div class="section bg-surface rounded-2xl overflow-hidden cosmic-glow">
+                    <div class="section-header">
+                        <div class="section-number">1</div>
+                        <h3 class="text-2xl font-clash font-bold text-text-primary">
+                            Age Requirements & Eligibility
+                        </h3>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <p class="text-text-secondary text-lg mb-6">
+                            To ensure legal compliance and responsible usage, we have established clear eligibility criteria for all users.
+                        </p>
+                        <div class="p-6 bg-secondary rounded-lg border-l-4 border-accent mb-6">
+                            <h4 class="text-xl font-clash font-semibold text-accent mb-2">Why Age Requirements Matter:</h4>
+                            <p class="text-text-secondary">
+                                Age verification is crucial for legal protection of both users and our platform. Different jurisdictions have varying laws regarding online consent and data collection from minors.
+                            </p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="relative p-6 bg-secondary rounded-lg border border-text-secondary/20 hover:border-accent/50 transition-all duration-300 transform hover:translate-x-1">
+                                <h4 class="text-lg font-semibold text-text-primary flex items-start gap-2">
+                                    <span class="text-accent text-xl">→</span> Minimum Age Requirement
+                                </h4>
+                                <p class="text-text-secondary mt-2">
+                                    You must be at least 18 years old to create an account and use Vyomarr's services. This ensures you can legally enter into binding agreements.
+                                </p>
+                            </div>
+                            <div class="relative p-6 bg-secondary rounded-lg border border-text-secondary/20 hover:border-accent/50 transition-all duration-300 transform hover:translate-x-1">
+                                <h4 class="text-lg font-semibold text-text-primary flex items-start gap-2">
+                                    <span class="text-accent text-xl">→</span> Legal Age of Majority
+                                </h4>
+                                <p class="text-text-secondary mt-2">
+                                    If 18 is not the age of majority in your country or region, you must have reached whatever age constitutes legal adulthood in your jurisdiction.
+                                </p>
+                            </div>
+                            <div class="relative p-6 bg-secondary rounded-lg border border-text-secondary/20 hover:border-accent/50 transition-all duration-300 transform hover:translate-x-1">
+                                <h4 class="text-lg font-semibold text-text-primary flex items-start gap-2">
+                                    <span class="text-accent text-xl">→</span> Account Verification
+                                </h4>
+                                <p class="text-text-secondary mt-2">
+                                    By creating an account, you confirm and warrant that you meet these age requirements. False information may result in account termination.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Acceptable Use Guidelines -->
+                <div class="section bg-surface rounded-2xl overflow-hidden cosmic-glow">
+                    <div class="section-header">
+                        <div class="section-number">2</div>
+                        <h3 class="text-2xl font-clash font-bold text-text-primary">
+                            Acceptable Use Guidelines
+                        </h3>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <p class="text-text-secondary text-lg mb-6">
+                            Vyomarr is designed to be a constructive space for space and astronomy enthusiasts. These guidelines ensure a positive experience for everyone.
+                        </p>
+                        <div class="p-6 bg-secondary rounded-lg border-l-4 border-accent mb-6">
+                            <h4 class="text-xl font-clash font-semibold text-accent mb-2">Our Community Standards:</h4>
+                            <p class="text-text-secondary">
+                                We believe in fostering an environment where scientific curiosity, respectful debate, and knowledge sharing can flourish. These rules help maintain that atmosphere.
+                            </p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="relative p-6 bg-secondary rounded-lg border border-text-secondary/20 hover:border-accent/50 transition-all duration-300 transform hover:translate-x-1">
+                                <h4 class="text-lg font-semibold text-text-primary flex items-start gap-2">
+                                    <span class="text-accent text-xl">→</span> Lawful and Constructive Use
+                                </h4>
+                                <p class="text-text-secondary mt-2">
+                                    Use Vyomarr only for legal purposes that contribute positively to the space community. Share knowledge, ask questions, and engage in meaningful discussions about astronomy, space exploration, and related sciences.
+                                </p>
+                            </div>
+                            <div class="relative p-6 bg-secondary rounded-lg border border-text-secondary/20 hover:border-accent/50 transition-all duration-300 transform hover:translate-x-1">
+                                <h4 class="text-lg font-semibold text-text-primary flex items-start gap-2">
+                                    <span class="text-accent text-xl">→</span> Accurate Information
+                                </h4>
+                                <p class="text-text-secondary mt-2">
+                                    Provide truthful information when creating your profile and posting content. Misinformation about scientific topics can mislead others and harm the educational value of our platform.
+                                </p>
+                            </div>
+                            <div class="relative p-6 bg-secondary rounded-lg border border-text-secondary/20 hover:border-accent/50 transition-all duration-300 transform hover:translate-x-1">
+                                <h4 class="text-lg font-semibold text-text-primary flex items-start gap-2">
+                                    <span class="text-accent text-xl">→</span> Respectful Communication
+                                </h4>
+                                <p class="text-text-secondary mt-2">
+                                    Treat all community members with respect and courtesy. Avoid personal attacks, harassment, hate speech, or any form of abusive behavior, even during heated scientific debates.
+                                </p>
+                            </div>
+                            <div class="relative p-6 bg-secondary rounded-lg border border-text-secondary/20 hover:border-accent/50 transition-all duration-300 transform hover:translate-x-1">
+                                <h4 class="text-lg font-semibold text-text-primary flex items-start gap-2">
+                                    <span class="text-accent text-xl">→</span> Content Standards
+                                </h4>
+                                <p class="text-text-secondary mt-2">
+                                    Do not post illegal, obscene, defamatory, or copyright-infringing content. Avoid content that promotes violence, discrimination, or violates others' privacy rights.
+                                </p>
+                            </div>
+                            <div class="relative p-6 bg-secondary rounded-lg border border-text-secondary/20 hover:border-accent/50 transition-all duration-300 transform hover:translate-x-1">
+                                <h4 class="text-lg font-semibold text-text-primary flex items-start gap-2">
+                                    <span class="text-accent text-xl">→</span> Platform Security
+                                </h4>
+                                <p class="text-text-secondary mt-2">
+                                    Refrain from spamming, phishing, hacking attempts, or any activities that could disrupt the platform's functionality or compromise other users' security.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 3: User Content Rights & Responsibilities -->
+                <div class="section bg-surface rounded-2xl overflow-hidden cosmic-glow">
+                    <div class="section-header">
+                        <div class="section-number">3</div>
+                        <h3 class="text-2xl font-clash font-bold text-text-primary">
+                            User Content Rights & Responsibilities
+                        </h3>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <div class="relative overflow-hidden p-6 bg-accent/20 border-2 border-accent/50 rounded-xl mb-6 shimmer-effect">
+                            <p class="text-lg font-semibold text-text-primary">
+                                You retain full ownership of all content you create and post on Vyomarr.
+                            </p>
+                        </div>
+                        <div class="p-6 bg-secondary rounded-lg border-l-4 border-accent mb-6">
+                            <h4 class="text-xl font-clash font-semibold text-accent mb-2">Understanding Content Licensing:</h4>
+                            <p class="text-text-secondary">
+                                While you keep ownership of your content, you grant us specific permissions to display and distribute it through our platform. This is necessary for the technical operation of the website.
+                            </p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="relative p-6 bg-secondary rounded-lg border border-text-secondary/20 hover:border-accent/50 transition-all duration-300 transform hover:translate-x-1">
+                                <h4 class="text-lg font-semibold text-text-primary flex items-start gap-2">
+                                    <span class="text-accent text-xl">→</span> Content Ownership
+                                </h4>
+                                <p class="text-text-secondary mt-2">
+                                    You maintain complete ownership of all articles, comments, images, and other materials you post ("User Content"). We never claim ownership of your intellectual property.
+                                </p>
+                            </div>
+                            <div class="relative p-6 bg-secondary rounded-lg border border-text-secondary/20 hover:border-accent/50 transition-all duration-300 transform hover:translate-x-1">
+                                <h4 class="text-lg font-semibold text-text-primary flex items-start gap-2">
+                                    <span class="text-accent text-xl">→</span> Platform License
+                                </h4>
+                                <p class="text-text-secondary mt-2">
+                                    By posting content, you grant Vyomarr a non-exclusive, worldwide, royalty-free license to display, distribute, and promote your content as part of our services. This allows us to show your content to other users and in search results.
+                                </p>
+                            </div>
+                            <div class="relative p-6 bg-secondary rounded-lg border border-text-secondary/20 hover:border-accent/50 transition-all duration-300 transform hover:translate-x-1">
+                                <h4 class="text-lg font-semibold text-text-primary flex items-start gap-2">
+                                    <span class="text-accent text-xl">→</span> Content Accuracy
+                                </h4>
+                                <p class="text-text-secondary mt-2">
+                                    You represent and warrant that your content doesn't violate any laws, infringe on third-party rights, or contain false information presented as fact.
+                                </p>
+                            </div>
+                            <div class="relative p-6 bg-secondary rounded-lg border border-text-secondary/20 hover:border-accent/50 transition-all duration-300 transform hover:translate-x-1">
+                                <h4 class="text-lg font-semibold text-text-primary flex items-start gap-2">
+                                    <span class="text-accent text-xl">→</span> Content Moderation
+                                </h4>
+                                <p class="text-text-secondary mt-2">
+                                    We reserve the right to remove, restrict, or moderate any content that violates these Terms, community guidelines, or is otherwise deemed inappropriate for our platform.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 4: Intellectual Property Protection -->
+                <div class="section bg-surface rounded-2xl overflow-hidden cosmic-glow">
+                    <div class="section-header">
+                        <div class="section-number">4</div>
+                        <h3 class="text-2xl font-clash font-bold text-text-primary">
+                            Intellectual Property Protection
+                        </h3>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <p class="text-text-secondary text-lg mb-6">
+                            We respect intellectual property rights and expect our users to do the same.
+                        </p>
+                        <div class="p-6 bg-secondary rounded-lg border-l-4 border-accent mb-6">
+                            <h4 class="text-xl font-clash font-semibold text-accent mb-2">Protecting Creative Works:</h4>
+                            <p class="text-text-secondary">
+                                Intellectual property laws protect original works of authorship, including text, images, software code, and design elements. Both user-generated and platform-owned content deserve protection.
+                            </p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="relative p-6 bg-secondary rounded-lg border border-text-secondary/20 hover:border-accent/50 transition-all duration-300 transform hover:translate-x-1">
+                                <h4 class="text-lg font-semibold text-text-primary flex items-start gap-2">
+                                    <span class="text-accent text-xl">→</span> Vyomarr's Proprietary Content
+                                </h4>
+                                <p class="text-text-secondary mt-2">
+                                    All content created by Vyomarr (excluding user-generated content) is owned or licensed by us and protected by copyright, trademark, and other intellectual property laws.
+                                </p>
+                            </div>
+                            <div class="relative p-6 bg-secondary rounded-lg border border-text-secondary/20 hover:border-accent/50 transition-all duration-300 transform hover:translate-x-1">
+                                <h4 class="text-lg font-semibold text-text-primary flex items-start gap-2">
+                                    <span class="text-accent text-xl">→</span> Usage Restrictions
+                                </h4>
+                                <p class="text-text-secondary mt-2">
+                                    You may not copy, reproduce, or distribute Vyomarr's proprietary content without explicit written permission from us.
+                                </p>
+                            </div>
+                            <div class="relative p-6 bg-secondary rounded-lg border border-text-secondary/20 hover:border-accent/50 transition-all duration-300 transform hover:translate-x-1">
+                                <h4 class="text-lg font-semibold text-text-primary flex items-start gap-2">
+                                    <span class="text-accent text-xl">→</span> Respect for Others' Rights
+                                </h4>
+                                <p class="text-text-secondary mt-2">
+                                    When posting content, ensure you have the right to share it. Don't post copyrighted material belonging to others unless you have permission or it falls under fair use provisions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 5: Privacy & Data Protection -->
+                <div class="section bg-surface rounded-2xl overflow-hidden cosmic-glow">
+                    <div class="section-header">
+                        <div class="section-number">5</div>
+                        <h3 class="text-2xl font-clash font-bold text-text-primary">
+                            Privacy & Data Protection
+                        </h3>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <div class="p-6 bg-secondary rounded-lg border-l-4 border-accent mb-6">
+                            <h4 class="text-xl font-clash font-semibold text-accent mb-2">Your Privacy Matters:</h4>
+                            <p class="text-text-secondary">
+                                We are committed to protecting your personal information and being transparent about how we collect, use, and safeguard your data.
+                            </p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="relative p-6 bg-secondary rounded-lg border border-text-secondary/20 hover:border-accent/50 transition-all duration-300 transform hover:translate-x-1">
+                                <h4 class="text-lg font-semibold text-text-primary flex items-start gap-2">
+                                    <span class="text-accent text-xl">→</span> Privacy Policy Reference
+                                </h4>
+                                <p class="text-text-secondary mt-2">
+                                    Please review our comprehensive Privacy Policy to understand how we collect, process, store, and protect your personal information, including your rights regarding your data.
+                                </p>
+                            </div>
+                            <div class="relative p-6 bg-secondary rounded-lg border border-text-secondary/20 hover:border-accent/50 transition-all duration-300 transform hover:translate-x-1">
+                                <h4 class="text-lg font-semibold text-text-primary flex items-start gap-2">
+                                    <span class="text-accent text-xl">→</span> Data Collection Transparency
+                                </h4>
+                                <p class="text-text-secondary mt-2">
+                                    We only collect data necessary for providing our services, improving user experience, and ensuring platform security. We never sell your personal information to third parties.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 6: Service Disclaimers & Legal Limitations -->
+                <div class="section bg-surface rounded-2xl overflow-hidden cosmic-glow">
+                    <div class="section-header">
+                        <div class="section-number">6</div>
+                        <h3 class="text-2xl font-clash font-bold text-text-primary">
+                            Service Disclaimers & Legal Limitations
+                        </h3>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <div class="p-6 bg-secondary rounded-lg border-l-4 border-accent mb-6">
+                            <h4 class="text-xl font-clash font-semibold text-accent mb-2">Understanding Service Limitations:</h4>
+                            <p class="text-text-secondary">
+                                Like all online platforms, Vyomarr cannot guarantee perfect performance or complete accuracy of all content. These disclaimers protect both users and the platform by setting realistic expectations.
+                            </p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="relative p-6 bg-secondary rounded-lg border border-text-secondary/20 hover:border-accent/50 transition-all duration-300 transform hover:translate-x-1">
+                                <h4 class="text-lg font-semibold text-text-primary flex items-start gap-2">
+                                    <span class="text-accent text-xl">→</span> "As Is" Service Provision
+                                </h4>
+                                <p class="text-text-secondary mt-2">
+                                    Vyomarr provides all services "as is" and "as available" without warranties of any kind, whether express or implied. We cannot guarantee uninterrupted access or error-free operation.
+                                </p>
+                            </div>
+                            <div class="relative p-6 bg-secondary rounded-lg border border-text-secondary/20 hover:border-accent/50 transition-all duration-300 transform hover:translate-x-1">
+                                <h4 class="text-lg font-semibold text-text-primary flex items-start gap-2">
+                                    <span class="text-accent text-xl">→</span> Content Accuracy Disclaimer
+                                </h4>
+                                <p class="text-text-secondary mt-2">
+                                    While we strive for accuracy, we cannot guarantee the completeness, reliability, or accuracy of all content on the platform, especially user-generated content and third-party links.
+                                </p>
+                            </div>
+                            <div class="relative p-6 bg-secondary rounded-lg border border-text-secondary/20 hover:border-accent/50 transition-all duration-300 transform hover:translate-x-1">
+                                <h4 class="text-lg font-semibold text-text-primary flex items-start gap-2">
+                                    <span class="text-accent text-xl">→</span> User Content Responsibility
+                                </h4>
+                                <p class="text-text-secondary mt-2">
+                                    Vyomarr is not responsible for user-generated content or external links. Users post content at their own discretion and responsibility.
+                                </p>
+                            </div>
+                            <div class="relative p-6 bg-secondary rounded-lg border border-text-secondary/20 hover:border-accent/50 transition-all duration-300 transform hover:translate-x-1">
+                                <h4 class="text-lg font-semibold text-text-primary flex items-start gap-2">
+                                    <span class="text-accent text-xl">→</span> Liability Limitations
+                                </h4>
+                                <p class="text-text-secondary mt-2">
+                                    To the maximum extent permitted by law, Vyomarr and its affiliates are not liable for any indirect, incidental, punitive, or consequential damages arising from your use of the services.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 7: Account Termination Policies -->
+                <div class="section bg-surface rounded-2xl overflow-hidden cosmic-glow">
+                    <div class="section-header">
+                        <div class="section-number">7</div>
+                        <h3 class="text-2xl font-clash font-bold text-text-primary">
+                            Account Termination Policies
+                        </h3>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <div class="p-6 bg-secondary rounded-lg border-l-4 border-accent mb-6">
+                            <h4 class="text-xl font-clash font-semibold text-accent mb-2">Maintaining Community Standards:</h4>
+                            <p class="text-text-secondary">
+                                To preserve the quality and safety of our community, we reserve the right to suspend or terminate accounts that violate our terms or engage in harmful behavior.
+                            </p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="relative p-6 bg-secondary rounded-lg border border-text-secondary/20 hover:border-accent/50 transition-all duration-300 transform hover:translate-x-1">
+                                <h4 class="text-lg font-semibold text-text-primary flex items-start gap-2">
+                                    <span class="text-accent text-xl">→</span> Violation-Based Termination
+                                </h4>
+                                <p class="text-text-secondary mt-2">
+                                    We may suspend or permanently terminate your access to Vyomarr if you violate these Terms, engage in harmful conduct, or pose a risk to other users or the platform's integrity.
+                                </p>
+                            </div>
+                            <div class="relative p-6 bg-secondary rounded-lg border border-text-secondary/20 hover:border-accent/50 transition-all duration-300 transform hover:translate-x-1">
+                                <h4 class="text-lg font-semibold text-text-primary flex items-start gap-2">
+                                    <span class="text-accent text-xl">→</span> Immediate Effect
+                                </h4>
+                                <p class="text-text-secondary mt-2">
+                                    Termination may be immediate for serious violations such as harassment, illegal activities, or repeated policy violations.
+                                </p>
+                            </div>
+                            <div class="relative p-6 bg-secondary rounded-lg border border-text-secondary/20 hover:border-accent/50 transition-all duration-300 transform hover:translate-x-1">
+                                <h4 class="text-lg font-semibold text-text-primary flex items-start gap-2">
+                                    <span class="text-accent text-xl">→</span> Rights Preservation
+                                </h4>
+                                <p class="text-text-secondary mt-2">
+                                    Termination does not affect any rights, obligations, or liabilities that accrued prior to termination. This includes any content licensing agreements or legal responsibilities.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 8: Terms Modification Policy -->
+                <div class="section bg-surface rounded-2xl overflow-hidden cosmic-glow">
+                    <div class="section-header">
+                        <div class="section-number">8</div>
+                        <h3 class="text-2xl font-clash font-bold text-text-primary">
+                            Terms Modification Policy
+                        </h3>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <div class="p-6 bg-secondary rounded-lg border-l-4 border-accent mb-6">
+                            <h4 class="text-xl font-clash font-semibold text-accent mb-2">Keeping Terms Current:</h4>
+                            <p class="text-text-secondary">
+                                As our platform evolves and legal requirements change, we may need to update these Terms. We're committed to transparency in this process.
+                            </p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="relative p-6 bg-secondary rounded-lg border border-text-secondary/20 hover:border-accent/50 transition-all duration-300 transform hover:translate-x-1">
+                                <h4 class="text-lg font-semibold text-text-primary flex items-start gap-2">
+                                    <span class="text-accent text-xl">→</span> Update Authority
+                                </h4>
+                                <p class="text-text-secondary mt-2">
+                                    We may update, modify, or revise these Terms from time to time to reflect changes in our services, legal requirements, or community needs.
+                                </p>
+                            </div>
+                            <div class="relative p-6 bg-secondary rounded-lg border border-text-secondary/20 hover:border-accent/50 transition-all duration-300 transform hover:translate-x-1">
+                                <h4 class="text-lg font-semibold text-text-primary flex items-start gap-2">
+                                    <span class="text-accent text-xl">→</span> Effective Date
+                                </h4>
+                                <p class="text-text-secondary mt-2">
+                                    Changes take effect immediately upon posting the updated Terms on our website. The "Last Updated" date at the top of this document reflects the most recent changes.
+                                </p>
+                            </div>
+                            <div class="relative p-6 bg-secondary rounded-lg border border-text-secondary/20 hover:border-accent/50 transition-all duration-300 transform hover:translate-x-1">
+                                <h4 class="text-lg font-semibold text-text-primary flex items-start gap-2">
+                                    <span class="text-accent text-xl">→</span> Continued Use Acceptance
+                                </h4>
+                                <p class="text-text-secondary mt-2">
+                                    Your continued use of Vyomarr after changes are posted constitutes your acceptance of the new Terms. If you don't agree with the changes, you should discontinue using our services.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 9: Legal Jurisdiction & Dispute Resolution -->
+                <div class="section bg-surface rounded-2xl overflow-hidden cosmic-glow">
+                    <div class="section-header">
+                        <div class="section-number">9</div>
+                        <h3 class="text-2xl font-clash font-bold text-text-primary">
+                            Legal Jurisdiction & Dispute Resolution
+                        </h3>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <div class="p-6 bg-secondary rounded-lg border-l-4 border-accent mb-6">
+                            <h4 class="text-xl font-clash font-semibold text-accent mb-2">Legal Framework:</h4>
+                            <p class="text-text-secondary">
+                                Establishing clear jurisdiction helps ensure that any legal matters are handled efficiently and fairly according to well-established legal principles.
+                            </p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="relative p-6 bg-secondary rounded-lg border border-text-secondary/20 hover:border-accent/50 transition-all duration-300 transform hover:translate-x-1">
+                                <h4 class="text-lg font-semibold text-text-primary flex items-start gap-2">
+                                    <span class="text-accent text-xl">→</span> Governing Law
+                                </h4>
+                                <p class="text-text-secondary mt-2">
+                                    These Terms of Service are governed by and construed in accordance with the laws of India, without regard to conflict of law principles.
+                                </p>
+                            </div>
+                            <div class="relative p-6 bg-secondary rounded-lg border border-text-secondary/20 hover:border-accent/50 transition-all duration-300 transform hover:translate-x-1">
+                                <h4 class="text-lg font-semibold text-text-primary flex items-start gap-2">
+                                    <span class="text-accent text-xl">→</span> Court Jurisdiction
+                                </h4>
+                                <p class="text-text-secondary mt-2">
+                                    Any disputes, claims, or legal proceedings arising from or related to these Terms or your use of Vyomarr will be resolved in the appropriate courts of India.
+                                </p>
+                            </div>
+                            <div class="relative p-6 bg-secondary rounded-lg border border-text-secondary/20 hover:border-accent/50 transition-all duration-300 transform hover:translate-x-1">
+                                <h4 class="text-lg font-semibold text-text-primary flex items-start gap-2">
+                                    <span class="text-accent text-xl">→</span> Legal Precedence
+                                </h4>
+                                <p class="text-text-secondary mt-2">
+                                    Indian law will take precedence in interpreting the terms, resolving ambiguities, and determining the enforceability of any provisions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Information Section -->
+            <div class="contact-info p-8 bg-surface rounded-2xl text-center mt-12 cosmic-glow">
+                <h3 class="text-3xl font-clash font-bold text-accent mb-4">Contact Us</h3>
+                <p class="text-lg text-text-secondary mb-4">
+                    For questions, concerns, or clarifications about these Terms of Service, please don't hesitate to reach out to our support team:
+                </p>
+                <p class="text-lg font-semibold mt-4">
+                    <a href="mailto:support@vyomarr.com" class="text-accent hover:underline transition-colors duration-200">
+                        support@vyomarr.com
+                    </a>
+                </p>
+                <p class="text-sm text-text-secondary/70 mt-2 italic">
+                    We typically respond to inquiries within 24-48 hours during business days.
+                </p>
+            </div>
+
+            <div class="mt-8 p-6 bg-surface/50 rounded-xl text-center italic text-text-secondary">
+                <p>These Terms of Service are designed to foster a respectful, engaging community of space enthusiasts while protecting both users and Vyomarr. Thank you for being part of our cosmic community!</p>
+            </div>
+        </main>
+    </div>
+    <div id="footer"></div>
+
+    <!-- JavaScript for scroll indicator and other potential interactions -->
+    <script>
+        // No more scroll indicator functionality as per user request.
+        document.addEventListener('DOMContentLoaded', function() {
+            // Placeholder for any code that needs to run on page load.
+            // In the original, the function was empty, but it's good practice
+            // to keep it in case more functionality is added.
+        });
+    </script>
+</body>
+</html>
